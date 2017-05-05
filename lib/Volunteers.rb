@@ -35,14 +35,7 @@ class Volunteers
      DB.exec("UPDATE volunteers SET name_volunteer = '#{@name_volunteer}' WHERE id = #{@id};")
    end
 
-  #  define_method(:delete) do
-  #    DB.exec("DELETE FROM volunteers WHERE id = #{self.id()};")
-  #  end
-  #
-
-
-
-
-
-
+   define_method(:delete) do
+     DB.exec("DELETE FROM volunteers WHERE id = #{self.id()};")
+   end
 end

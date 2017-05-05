@@ -41,15 +41,15 @@ describe(Volunteers) do
       end
     end
 
-  # describe("#delete") do
-  #     it("lets you delete a volunteer from the database") do
-  #       volunteer = Volunteers.new({:name_volunteer => "Weed Pulling", :id => nil})
-  #       volunteer.save()
-  #       volunteer2 = Volunteers.new({:name_volunteer => "Car Wash", :id => nil})
-  #       volunteer2.save()
-  #       volunteer.delete()
-  #       expect(Volunteers.all()).to(eq([volunteer2]))
-  #     end
-  #   end
+  describe("#delete") do
+      it("lets you delete a volunteer from the database") do
+        volunteer = Volunteers.new({:name_volunteer => "Weed Pulling", :id => nil})
+        volunteer.save()
+        volunteer2 = Volunteers.new({:name_volunteer => "Car Wash", :id => nil})
+        volunteer2.save()
+        volunteer.delete()
+        expect(Volunteers.all()).to(eq([volunteer2]))
+      end
+    end
 
 end
