@@ -12,7 +12,15 @@ class Projects
     same_class.&(same_name_project)
   end
 
-
+  define_singleton_method(:all) do
+  returned_projects = DB.exec("SELECT * FROM projects;")
+  projects = []
+  returned_projects.each() do |task|
+    description = task.fetch("name_project")
+    projects.push(Projects.new({:name_project => name_project}))
+  end
+  projects
+  end
 
 
 

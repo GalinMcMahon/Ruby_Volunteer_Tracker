@@ -11,13 +11,19 @@ describe(Projects) do
     end
   end
 
-  #
+  describe(".all") do
+    it("is empty at first") do
+      expect(Projects.all()).to(eq([]))
+    end
+  end
+
   # describe("#name_project") do
   #   it("lets you see existing project") do
-  #     test_project = Projects.new({:name_project => "Field Mowing"})
+  #     test_project = Projects.new({:name_project => "Field Mowing", :id => nil})
   #     expect(test_project.name_project()).to(eq("Field Mowing"))
   #   end
   # end
+
 
 
 
