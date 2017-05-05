@@ -32,7 +32,14 @@ describe(Projects) do
     end
   end
 
-
+  describe("#update") do
+      it("lets you update project names") do
+        project = Projects.new({:id => nil, :name_project => "Field Mowing"})
+        project.save()
+        project.update({:name_project => "Weed Pulling"})
+        expect(project.name_project()).to(eq("Weed Pulling"))
+      end
+    end
 
 
 end

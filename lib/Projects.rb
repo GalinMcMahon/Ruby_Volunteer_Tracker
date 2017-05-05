@@ -29,6 +29,11 @@ class Projects
   @id = result.first().fetch("id").to_i()
   end
 
+  define_method(:update) do |attributes|
+     @name_project = attributes.fetch(:name_project)
+     @id = self.id()
+     DB.exec("UPDATE projects SET name_project = '#{@name_project}' WHERE id = #{@id};")
+   end
 
 
 end
