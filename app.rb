@@ -1,8 +1,11 @@
 require 'sinatra'
 require 'sinatra/reloader'
-require './lib/Volunteer_Tracker'
+require './lib/Projects'
+require './lib/Volunteers'
 require 'pry'
-require 'ps'
+require 'pg'
+
+DB = PG.connect({:dbname => 'volunteer_tracker'})
 
 also_reload('lib/**/*.rb')
 

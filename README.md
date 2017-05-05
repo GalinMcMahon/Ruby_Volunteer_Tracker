@@ -13,7 +13,14 @@ Bundler
 
 ### Installing
 
-Clone this repository to your machine.  Navigate to the file path in your terminal and run 'app.rb' by typing '$ruby app.rb'.  Copy into your browser: localhost://4567
+Clone this repository to your machine.  Navigate to the file path in your terminal and run 'app.rb' by typing:
+~~~~
+$ruby app.rb
+~~~~
+Copy into your browser:
+~~~~
+localhost://4567
+~~~~
 
 ### Creating the Database in SQL
 
@@ -21,6 +28,7 @@ Run psql (In one terminal window type: postgres.  In a second terminal window ty
 In psql, enter the following lines:
 ~~~sql
 CREATE DATABASE volunteer_tracker;
+\c volunteer tracker;
 CREATE TABLE projects (id serial PRIMARY KEY, name_project varchar);
 CREATE TABLE volunteers (id serial PRIMARY KEY, name_volunteer varchar);
 ~~~
