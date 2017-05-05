@@ -10,8 +10,15 @@ DB = PG.connect({:dbname => 'volunteer_tracker'})
 also_reload('lib/**/*.rb')
 
 get('/') do
+  @projects = Projects.all
   erb(:index)
 end
+
+get("/projects/:id") do
+  @project = Projects.find(params.fetch("id").to_i())
+  erb(:projects)
+end
+
 
 
 
