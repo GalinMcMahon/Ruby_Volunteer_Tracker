@@ -2,8 +2,9 @@ class Volunteers
 
   attr_reader(:name_volunteer)
 
-  define_method(:initialize) do |name_volunteer|
-    @name_volunteer = name_volunteer
+  define_method(:initialize) do |attributes|
+    @name_volunteer = attributes.fetch(:name_volunteer)
+    @id = attributes.fetch(:id)
   end
 
   define_method(:==) do |other|
