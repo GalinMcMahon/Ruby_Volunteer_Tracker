@@ -1,0 +1,20 @@
+<h2>volunteer_form.erb</h2><br><br>
+
+
+<h3>Current Volunteers:</h3>
+<%
+# clickable list of volunteers goes here
+%>
+
+<form action="/volunteer_new" method="POST">
+ <div class="form-group">
+    <label for="name_volunteer">Volunteer Name:</label>
+    <input name="name_volunteer" class="form-control" type="text">
+ </div>
+ <hr>
+ <button type="submit" class="btn btn-success">Submit new volunteer</button>
+</form>
+<br><br>
+<h4><a href="/volunteer_form" class="btn btn-danger">Reload this page</a></h4>
+<h4><a href="/project_form" class="btn btn-danger">Add projects</a></h4>
+<h4><a href="/" class="btn btn-danger">Back to main</a></h4>

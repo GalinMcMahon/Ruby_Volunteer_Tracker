@@ -1,0 +1,20 @@
+<h2>project_form.erb</h2><br><br>
+
+
+<h3>Current Projects:</h3>
+<%
+# clickable list of projects goes here
+%>
+
+<form action="/project_new" method="POST">
+ <div class="form-group">
+    <label for="name_project">Project Name:</label>
+    <input name="name_project" class="form-control" type="text">
+ </div>
+ <hr>
+ <button type="submit" class="btn btn-success">Submit new project</button>
+</form>
+<br><br>
+<h4><a href="/project_form" class="btn btn-danger">Reload this page</a></h4>
+<h4><a href="/volunteer_form" class="btn btn-danger">View / Add volunteers</a></h4>
+<h4><a href="/" class="btn btn-danger">Back to main</a></h4>
