@@ -16,14 +16,14 @@ describe(Volunteers) do
       expect(Volunteers.all()).to(eq([]))
     end
   end
-  #
-  # describe("#name_volunteer") do
-  #   it("lets you see existing volunteer") do
-  #     test_volunteer = Volunteers.new({:id => nil, :name_volunteer => "Sally Smith"})
-  #     expect(test_volunteer.name_volunteer()).to(eq("Sally Smith"))
-  #   end
-  # end
-  #
+  
+  describe("#name_volunteer") do
+    it("lets you see existing volunteer") do
+      test_volunteer = Volunteers.new({:id => nil, :name_volunteer => "Sally Smith"})
+      expect(test_volunteer.name_volunteer()).to(eq("Sally Smith"))
+    end
+  end
+
   # describe("#save") do
   #   it("adds a task to the array of saved tasks") do
   #     test_volunteer = Volunteers.new({:id => nil, :name_volunteer => "Sally Smith"})
