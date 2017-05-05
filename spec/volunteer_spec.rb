@@ -11,11 +11,11 @@ describe(Volunteers) do
     end
   end
 
-  # describe(".all") do
-  #   it("is empty at first") do
-  #     expect(Volunteers.all()).to(eq([]))
-  #   end
-  # end
+  describe(".all") do
+    it("is empty at first") do
+      expect(Volunteers.all()).to(eq([]))
+    end
+  end
   #
   # describe("#name_volunteer") do
   #   it("lets you see existing volunteer") do
