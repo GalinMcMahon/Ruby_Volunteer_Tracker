@@ -16,7 +16,7 @@ describe(Volunteers) do
       expect(Volunteers.all()).to(eq([]))
     end
   end
-  
+
   describe("#name_volunteer") do
     it("lets you see existing volunteer") do
       test_volunteer = Volunteers.new({:id => nil, :name_volunteer => "Sally Smith"})
@@ -24,14 +24,14 @@ describe(Volunteers) do
     end
   end
 
-  # describe("#save") do
-  #   it("adds a task to the array of saved tasks") do
-  #     test_volunteer = Volunteers.new({:id => nil, :name_volunteer => "Sally Smith"})
-  #     test_volunteer.save()
-  #     expect(Volunteers.all()).to(eq([test_volunteer]))
-  #   end
-  # end
-  #
+  describe("#save") do
+    it("adds a task to the array of saved tasks") do
+      test_volunteer = Volunteers.new({:id => nil, :name_volunteer => "Sally Smith"})
+      test_volunteer.save()
+      expect(Volunteers.all()).to(eq([test_volunteer]))
+    end
+  end
+
   # describe("#update") do
   #     it("lets you update volunteer names") do
   #       volunteer = Volunteers.new({:id => nil, :name_volunteer => "Sally Smith"})

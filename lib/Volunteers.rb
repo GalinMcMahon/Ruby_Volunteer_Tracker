@@ -23,12 +23,12 @@ class Volunteers
     same_name_volunteer = self.name_volunteer().eql?(other.name_volunteer())
     same_class.&(same_name_volunteer)
   end
-  #
-  # define_method(:save) do
-  # result = DB.exec("INSERT INTO volunteers (name_volunteer) VALUES ('#{@name_volunteer}') RETURNING id;")
-  # @id = result.first().fetch("id").to_i()
-  # end
-  #
+  
+  define_method(:save) do
+  result = DB.exec("INSERT INTO volunteers (name_volunteer) VALUES ('#{@name_volunteer}') RETURNING id;")
+  @id = result.first().fetch("id").to_i()
+  end
+
   # define_method(:update) do |attributes|
   #    @name_volunteer = attributes.fetch(:name_volunteer)
   #    @id = self.id()
