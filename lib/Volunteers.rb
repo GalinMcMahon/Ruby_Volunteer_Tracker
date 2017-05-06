@@ -25,8 +25,8 @@ class Volunteers
   end
 
   define_method(:save) do
-  result = DB.exec("INSERT INTO volunteers (name_volunteer) VALUES ('#{@name_volunteer}') RETURNING id;")
-  @id = result.first().fetch("id").to_i()
+    result = DB.exec("INSERT INTO volunteers (name_volunteer) VALUES ('#{@name_volunteer}') RETURNING id;")
+    @id = result.first().fetch("id").to_i()
   end
 
   define_method(:update) do |attributes|

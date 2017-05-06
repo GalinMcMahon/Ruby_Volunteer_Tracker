@@ -35,8 +35,24 @@ class Projects
      DB.exec("UPDATE projects SET name_project = '#{@name_project}' WHERE id = #{@id};")
    end
 
-   define_method(:delete) do
-     DB.exec("DELETE FROM projects WHERE id = #{self.id()};")
-   end
+  define_method(:delete) do
+   DB.exec("DELETE FROM projects WHERE id = #{self.id()};")
+  end
+
+  define_singleton_method(:find) do |id|
+    found_project = nil
+    Projects.all().each() do |project|
+      if project.id().==(id)
+        found_project = project
+      end
+    end
+    found_project
+  end
+
+  def self.find_by_id(id)
+    results = DB.exec("SELECT * FROM projects WHERE id = #{id};")
+    found_project_hash = results[0]
+    found_project_hash
+end
 
 end
