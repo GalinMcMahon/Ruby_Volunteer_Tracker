@@ -1,15 +1,19 @@
 <h2>project_form.erb</h2><br><br>
 
+<p><%= @project_new %> has beed added.</p><br>
 
-<h3>Current Projects:</h3>
-<%
-# clickable list of projects goes here
-%>
 
+<ul style="list-style: none;">
+  <% @projects.each() do |project| %>
+  <li><a href="/projects/ <%= project.id() %>"> <%= project.name_project() %></a></li>
+  <% end %>
+</ul>
+
+<br><br>
 <form action="/project_new" method="POST">
  <div class="form-group">
-    <label for="name_project">Project Name:</label>
-    <input name="name_project" class="form-control" type="text">
+    <label for="new_project">Project Name:</label>
+    <input name="new_project" class="form-control" type="text">
  </div>
  <hr>
  <button type="submit" class="btn btn-success">Submit new project</button>

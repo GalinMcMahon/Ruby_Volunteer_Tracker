@@ -23,18 +23,19 @@ end
 #   @volunteers = Projects.find(params.fetch("id").to_i())
 #   erb(:projects)
 # end
-
-    # link to the blank volunteer form
-get('/volunteer_form') do
-  @volunteers = Volunteers.all
-  erb(:volunteer_form)
-end
 # get('/:id') do
 #   @project = Projects.params.fetch('id').to_i
 #   erb(:projects)
 # end
 
 # POST FROM volunteer_form.erb
+
+# link to the blank volunteer form
+get('/volunteer_form') do
+  @volunteers = Volunteers.all
+  erb(:volunteer_form)
+end
+
 post('/volunteer_new') do
   volunteer_new = params.fetch("new_volunteer")
   @volunteer_new = volunteer_new
@@ -43,6 +44,21 @@ post('/volunteer_new') do
   @volunteers = Volunteers.all
   erb(:volunteer_form)
 end
+
+get('/project_form') do
+  @projects = Projects.all
+  erb(:project_form)
+end
+
+post('/project_new') do
+  project_new = params.fetch("new_project")
+  @project_new = project_new
+  new_project = Projects.new(:name_project => project_new, :id => nil)
+  new_project.save()
+  @projects = Projects.all
+  erb(:project_form)
+end
+
 
 
 # post('/new_patron_form') do
