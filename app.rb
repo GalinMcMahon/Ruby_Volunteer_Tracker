@@ -14,6 +14,14 @@ get('/') do
   erb(:index)
 end
 
+# Shows available volunteers on projects
+get('/projects/:id') do
+  @volunteers = Volunteers.all
+  # @assigned_volunteers = Projects.assign()
+  @project = Projects.find(params.fetch("id").to_i())
+  erb(:projects)
+end
+
 get("/projects/:id") do
   @project = Projects.find(params.fetch("id").to_i())
   erb(:projects)
@@ -59,7 +67,13 @@ post('/project_new') do
   erb(:project_form)
 end
 
-
+# post("/cities") do
+#   name = params.fetch("name")
+#   city = City.new({:name => name, :id => nil})
+#   city.save()
+#   @cities = City.all()
+#   erb(:cities)
+# end
 
 # post('/new_patron_form') do
 #   patron_new = params.fetch("patron_name")

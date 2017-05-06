@@ -29,8 +29,8 @@ In psql, enter the following lines:
 ~~~sql
 CREATE DATABASE volunteer_tracker;
 \c volunteer tracker;
-CREATE TABLE projects (id serial PRIMARY KEY, name_project varchar);
-CREATE TABLE volunteers (id serial PRIMARY KEY, name_volunteer varchar);
+CREATE TABLE projects (id serial PRIMARY KEY, name_project varchar, volunteers_id int);
+CREATE TABLE volunteers (id serial PRIMARY KEY, name_volunteer varchar, projects_id int);
 ~~~
 
 ## Built With

@@ -5,6 +5,7 @@
 
 <p><%= @volunteer_new %> has beed added.</p><br>
 
+
 <ul style="list-style: none;">
   <% @volunteers.each() do |volunteer| %>
   <li><a href="/volunteers/ <%= volunteer.id() %>"> <%= volunteer.name_volunteer() %></a></li>

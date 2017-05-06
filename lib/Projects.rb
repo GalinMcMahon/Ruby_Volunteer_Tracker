@@ -53,6 +53,10 @@ class Projects
     results = DB.exec("SELECT * FROM projects WHERE id = #{id};")
     found_project_hash = results[0]
     found_project_hash
-end
+  end
+
+  define_method(:assign) do
+    DB.exec("INSERT INTO projects (volunteers_id) VALUES (<%= volunteer.id() %>) WHERE id = #{self.id()}")
+  end
 
 end

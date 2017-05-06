@@ -2,6 +2,34 @@
 
 <h4>Page for the <%= @project.name_project() %> project</h4>
 
+
+
+  <div class = "row">
+    <div class = "well">
+      <div class="col-lg-5">
+        <ul style="list-style: none;">
+          <h4>Available volunteers.  Click to add to project<h4>
+
+
+
+
+
+  <% @volunteers.each() do |volunteer| %>
+  <li><button type = "submit" onclick= "volunteer.assign()" <%= volunteer.id() %>"> <%= volunteer.name_volunteer() %></a></li>
+
+
+
+
+
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
 <br><br>
 <h4><a href="/project_form" class="btn btn-danger">Add a project</a></h4>
 <h4><a href="/volunteer_form" class="btn btn-danger">View / Add volunteers</a></h4>

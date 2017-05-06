@@ -8,3 +8,18 @@
   <% end %>
 </ul>
 %>
+
+
+
+<div class = "row">
+  <div class = "well">
+    <div class="col-lg-5">
+      <h4>Current volunteers on this project:</h4>
+        <ul style="list-style: none;">
+          <% @assigned_volunteers.each() do |assigned| %>
+          <li><a href="/volunteers/ <%= assigned.id() %>"> <%= assigned.name_assign() %></a></li>
+          <% end %>
+        </ul>
+    </div>
+  </div>
+</div>

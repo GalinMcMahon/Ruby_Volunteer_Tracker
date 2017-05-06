@@ -38,4 +38,22 @@ class Volunteers
    define_method(:delete) do
      DB.exec("DELETE FROM volunteers WHERE id = #{self.id()};")
    end
+
+
+
+  define_singleton_method(:available) do
+  available_volunteers = DB.exec("SELECT * FROM volunteers;")
+  available_arr = []
+  available_volunteers.each() do |volunteer|
+    name_volunteer = volunteer.fetch("name_volunteer")
+    id = volunteer.fetch("id").to_i()
+    projects_id = volunteer.fetch("projects_id").to_i()
+    if projects_id <=1
+      available_arr.push(Volunteers.new({:id => id, :name_volunteer => name_volunteer, :projects_id => projects_id}))
+    else
+    end
+  available_arr
+  end
+
+end
 end
