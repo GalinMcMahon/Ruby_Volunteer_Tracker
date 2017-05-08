@@ -59,4 +59,6 @@ class Projects
     DB.exec("INSERT INTO projects (volunteers_id) VALUES (<%= volunteer.id() %>) WHERE id = #{self.id()}")
   end
 
+
+
 end

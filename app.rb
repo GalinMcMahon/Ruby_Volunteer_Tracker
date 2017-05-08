@@ -17,26 +17,9 @@ end
 # Shows available volunteers on projects
 get('/projects/:id') do
   @volunteers = Volunteers.all
-  # @assigned_volunteers = Projects.assign()
   @project = Projects.find(params.fetch("id").to_i())
   erb(:projects)
 end
-
-get("/projects/:id") do
-  @project = Projects.find(params.fetch("id").to_i())
-  erb(:projects)
-end
-
-# get("/volunteers/:id") do
-#   @volunteers = Projects.find(params.fetch("id").to_i())
-#   erb(:projects)
-# end
-# get('/:id') do
-#   @project = Projects.params.fetch('id').to_i
-#   erb(:projects)
-# end
-
-# POST FROM volunteer_form.erb
 
 # link to the blank volunteer form
 get('/volunteer_form') do
@@ -66,36 +49,3 @@ post('/project_new') do
   @projects = Projects.all
   erb(:project_form)
 end
-
-# post("/cities") do
-#   name = params.fetch("name")
-#   city = City.new({:name => name, :id => nil})
-#   city.save()
-#   @cities = City.all()
-#   erb(:cities)
-# end
-
-# post('/new_patron_form') do
-#   patron_new = params.fetch("patron_name")
-#   @patron_name = patron_new
-#   new_patron = Patrons.new(patron_new)
-#   new_patron.save()
-#   erb(:patron_welcome)
-# end
-
-
-
-# post('/definitions') do
-#   definition = params.fetch('inputted_definition')
-#   @definition = Definitions.new(definition)
-#   @definition.save()
-#   @word = Words.find(params.fetch('word_id').to_i())
-#   @word.add_definition(@definition)
-#   @words = Words.all()
-#   erb(:words)
-
-
-        # POST FROM project_form.erb
-# post('/project_new') do
-#
-# end

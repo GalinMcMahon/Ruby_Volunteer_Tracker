@@ -1,6 +1,6 @@
 class Volunteers
 
-  attr_reader(:name_volunteer, :id)
+  attr_accessor(:name_volunteer, :id)
 
   define_method(:initialize) do |attributes|
     @name_volunteer = attributes.fetch(:name_volunteer)
@@ -33,27 +33,26 @@ class Volunteers
      @name_volunteer = attributes.fetch(:name_volunteer)
      @id = self.id()
      DB.exec("UPDATE volunteers SET name_volunteer = '#{@name_volunteer}' WHERE id = #{@id};")
-   end
-
-   define_method(:delete) do
-     DB.exec("DELETE FROM volunteers WHERE id = #{self.id()};")
-   end
-
-
-
-  define_singleton_method(:available) do
-  available_volunteers = DB.exec("SELECT * FROM volunteers;")
-  available_arr = []
-  available_volunteers.each() do |volunteer|
-    name_volunteer = volunteer.fetch("name_volunteer")
-    id = volunteer.fetch("id").to_i()
-    projects_id = volunteer.fetch("projects_id").to_i()
-    if projects_id <=1
-      available_arr.push(Volunteers.new({:id => id, :name_volunteer => name_volunteer, :projects_id => projects_id}))
-    else
-    end
-  available_arr
   end
 
-end
+  define_method(:delete) do
+   DB.exec("DELETE FROM volunteers WHERE id = #{self.id()};")
+  end
+
+  define_singleton_method(:available) do
+    available_volunteers = DB.exec("SELECT * FROM volunteers;")
+    available_arr = []
+    available_volunteers.each() do |volunteer|
+      name_volunteer = volunteer.fetch("name_volunteer")
+      id = volunteer.fetch("id").to_i()
+      projects_id = volunteer.fetch("projects_id").to_i()
+      if projects_id <=1
+        available_arr.push(Volunteers.new({:id => id, :name_volunteer => name_volunteer, :projects_id => projects_id}))
+           binding.pry
+      else
+        @id = available_arr[1]["id"].to_i
+      end
+      available_arr
+    end
+  end
 end

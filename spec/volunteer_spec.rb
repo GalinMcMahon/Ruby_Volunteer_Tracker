@@ -1,7 +1,7 @@
 require 'spec_helper.rb'
 
 
-describe(Volunteers) do
+describe("Volunteers") do
 
   describe("#==") do
     it("is the same volunteer if it has the same name") do
@@ -33,23 +33,30 @@ describe(Volunteers) do
   end
 
   describe("#update") do
-      it("lets you update volunteer names") do
-        volunteer = Volunteers.new({:id => nil, :name_volunteer => "Sally Smith"})
-        volunteer.save()
-        volunteer.update({:name_volunteer => "Weed Pulling"})
-        expect(volunteer.name_volunteer()).to(eq("Weed Pulling"))
-      end
+    it("lets you update volunteer names") do
+      volunteer = Volunteers.new({:id => nil, :name_volunteer => "Sally Smith"})
+      volunteer.save()
+      volunteer.update({:name_volunteer => "Sally Jones"})
+      expect(volunteer.name_volunteer()).to(eq("Sally Jones"))
     end
+  end
 
   describe("#delete") do
-      it("lets you delete a volunteer from the database") do
-        volunteer = Volunteers.new({:name_volunteer => "Weed Pulling", :id => nil})
-        volunteer.save()
-        volunteer2 = Volunteers.new({:name_volunteer => "Car Wash", :id => nil})
-        volunteer2.save()
-        volunteer.delete()
-        expect(Volunteers.all()).to(eq([volunteer2]))
-      end
+    it("lets you delete a volunteer from the database") do
+      volunteer = Volunteers.new({:name_volunteer => "Joe Blo", :id => nil})
+      volunteer.save()
+      volunteer2 = Volunteers.new({:name_volunteer => "Sally Sue", :id => nil})
+      volunteer2.save()
+      volunteer.delete()
+      expect(Volunteers.all()).to(eq([volunteer2]))
     end
+  end
 
+  # describe("#available") do
+  #   it("returns an array of available volunteers from the database") do
+  #     volunteer = Volunteers.new({:name_volunteer => "Joe Blo", :id => nil, :projects_id => nil})
+  #     volunteer.save()
+  #     expect(Volunteers.available()).to(eq([volunteer]))
+  #   end
+  # end
 end

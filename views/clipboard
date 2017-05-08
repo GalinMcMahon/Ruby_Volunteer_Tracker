@@ -23,3 +23,6 @@
     </div>
   </div>
 </div>
+
+
+<h4>Page for the <%= @project.name_project() %> project</h4>

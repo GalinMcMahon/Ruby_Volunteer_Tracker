@@ -2,6 +2,10 @@
 
 App allows a non-profit to track their projects and their volunteers.
 
+# BUGS
+
+There is a %20 in the URL that I can't find the source of.  It's not possible to finish building the page until I find the source of the issue.  Google has been entirely unhelpful.
+
 ### Prerequisites
 
 ~~~~
